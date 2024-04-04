@@ -1,0 +1,1 @@
+export { RegistrationFormState } from "./RegistrationFormState";
