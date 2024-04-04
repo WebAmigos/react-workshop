@@ -1,4 +1,4 @@
-import { FormEventHandler, useRef } from "react";
+import { FormEventHandler, useEffect, useRef } from "react";
 import { Button } from "../../ui";
 
 type RegistrationFormData = {
@@ -11,6 +11,13 @@ export const RegistrationFormRefsCustomInput = () => {
   const emailFieldRef = useRef<HTMLInputElement>(null);
   const passwordFieldRef = useRef<HTMLInputElement>(null);
   const languageFieldRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (emailFieldRef.current) {
+      emailFieldRef.current.focus();
+      // emailFieldRef.current.style.border = "1px solid #f00";
+    }
+  }, []);
 
   const handleSubmit: FormEventHandler = (event) => {
     event.preventDefault();
