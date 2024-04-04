@@ -4,6 +4,7 @@ import { Generator } from "./components/Generator";
 import {
   RegistrationFormRefs,
   RegistrationFormRefsCustomInput,
+  RegistrationFormRefsHookForm,
   RegistrationFormState,
 } from "./components/RegistrationForm";
 
@@ -14,7 +15,8 @@ function App() {
       {/* <Counter /> */}
       {/* <RegistrationFormState /> */}
       {/* <RegistrationFormRefs /> */}
-      <RegistrationFormRefsCustomInput />
+      {/* <RegistrationFormRefsCustomInput /> */}
+      <RegistrationFormRefsHookForm />
     </>
   );
 }
