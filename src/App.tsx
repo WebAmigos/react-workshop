@@ -3,6 +3,7 @@ import { Counter } from "./components/Counter";
 import { Generator } from "./components/Generator";
 import {
   RegistrationFormRefs,
+  RegistrationFormRefsCustomInput,
   RegistrationFormState,
 } from "./components/RegistrationForm";
 
@@ -12,7 +13,8 @@ function App() {
       {/* <Generator /> */}
       {/* <Counter /> */}
       {/* <RegistrationFormState /> */}
-      <RegistrationFormRefs />
+      {/* <RegistrationFormRefs /> */}
+      <RegistrationFormRefsCustomInput />
     </>
   );
 }
