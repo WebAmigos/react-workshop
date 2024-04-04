@@ -1,14 +1,18 @@
 import "./App.css";
 import { Counter } from "./components/Counter";
 import { Generator } from "./components/Generator";
-import { RegistrationFormState } from "./components/RegistrationForm";
+import {
+  RegistrationFormRefs,
+  RegistrationFormState,
+} from "./components/RegistrationForm";
 
 function App() {
   return (
     <>
       {/* <Generator /> */}
       {/* <Counter /> */}
-      <RegistrationFormState />
+      {/* <RegistrationFormState /> */}
+      <RegistrationFormRefs />
     </>
   );
 }
