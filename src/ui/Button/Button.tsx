@@ -1,4 +1,4 @@
-import { type MouseEventHandler, type ComponentProps } from "react";
+import { type ComponentProps } from "react";
 import { cn } from "../../utils/cn";
 
 type Props = {
