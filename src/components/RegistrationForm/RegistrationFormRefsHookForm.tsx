@@ -1,12 +1,8 @@
 import { useForm, type SubmitHandler } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import { Button, Input } from "../../ui";
-
-type RegistrationFormData = {
-  email: string;
-  password: string;
-  language: string;
-};
+import { type RegistrationFormData, validationSchema } from "./types";
 
 export const RegistrationFormRefsHookForm = () => {
   const {
@@ -14,7 +10,9 @@ export const RegistrationFormRefsHookForm = () => {
     watch,
     handleSubmit,
     formState: { errors },
-  } = useForm<RegistrationFormData>();
+  } = useForm<RegistrationFormData>({
+    resolver: zodResolver(validationSchema),
+  });
 
   const watchedFields = watch(["email", "password"]);
   const [email, password] = watchedFields;
@@ -32,17 +30,21 @@ export const RegistrationFormRefsHookForm = () => {
       </p>
       <Input
         label="E-mail"
-        {...register("email", { required: true })}
+        {...register("email")}
         type="email"
+        error={errors.email}
       />
-      {errors.email && <p className="text-red-500">E-mail is required</p>}
       <Input
         label="Password"
-        {...register("password", { required: true })}
+        {...register("password")}
         type="password"
+        error={errors.password}
       />
-      {errors.password && <p className="text-red-500">Password is required</p>}
-      <Input label="Language" {...register("language")} />
+      <Input
+        label="Language"
+        {...register("language")}
+        error={errors.language}
+      />
       <Button label="Send" type="submit" />
     </form>
   );
