@@ -11,9 +11,13 @@ type RegistrationFormData = {
 export const RegistrationFormRefsHookForm = () => {
   const {
     register,
+    watch,
     handleSubmit,
     formState: { errors },
   } = useForm<RegistrationFormData>();
+
+  const watchedFields = watch(["email", "password"]);
+  const [email, password] = watchedFields;
 
   const handleRegistrationForm: SubmitHandler<RegistrationFormData> = (
     data
@@ -23,6 +27,9 @@ export const RegistrationFormRefsHookForm = () => {
 
   return (
     <form onSubmit={handleSubmit(handleRegistrationForm)}>
+      <p>
+        E-mail: {email}, password: {password}
+      </p>
       <Input
         label="E-mail"
         {...register("email", { required: true })}
