@@ -16,5 +16,5 @@ export const Counter = () => {
     // }, [count]); // mount && update
   }, []); // mount
 
-  return <div>{count}</div>;
+  return <div className="dark:text-slate-300">{count}</div>;
 };
