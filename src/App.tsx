@@ -7,6 +7,7 @@ import {
   RegistrationFormRefsHookForm,
   RegistrationFormState,
 } from "./components/RegistrationForm";
+import { ViewPort } from "./components/ViewPort";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
       {/* <RegistrationFormState /> */}
       {/* <RegistrationFormRefs /> */}
       {/* <RegistrationFormRefsCustomInput /> */}
-      <RegistrationFormRefsHookForm />
+      {/* <RegistrationFormRefsHookForm /> */}
+      <ViewPort />
     </>
   );
 }
