@@ -1,5 +1,6 @@
 import { MouseEventHandler } from "react";
 import { useThemeContext } from "./ThemeContext";
+import { Button } from "../../ui";
 
 export const ThemeSwitcher = () => {
   const context = useThemeContext();
@@ -10,7 +11,7 @@ export const ThemeSwitcher = () => {
 
   return (
     <div>
-      <button onClick={handleClick}>Switch Theme</button>
+      <Button label="Switch Theme" onClick={handleClick} />
     </div>
   );
 };
