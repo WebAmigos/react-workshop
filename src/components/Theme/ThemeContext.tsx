@@ -1,12 +1,12 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useRef } from "react";
 
-enum Theme {
+export enum Theme {
   LIGHT = "light",
   DARK = "dark",
 }
 
 type ThemeContextType = {
-  theme: Theme;
+  theme: React.MutableRefObject<Theme>;
   toggle: () => void;
 };
 
@@ -22,14 +22,17 @@ export const useThemeContext = () => {
 };
 
 const useTheme = () => {
-  const [theme, setTheme] = useState<Theme>(Theme.LIGHT);
+  // const [theme, setTheme] = useState<Theme>(Theme.LIGHT);
+  const theme = useRef<Theme>(Theme.LIGHT);
 
   const toggle = () => {
-    if (theme === Theme.DARK) {
-      setTheme(Theme.LIGHT);
+    if (theme.current === Theme.DARK) {
+      // setTheme(Theme.LIGHT);
+      theme.current = Theme.LIGHT;
       document.body.classList.remove("dark");
     } else {
-      setTheme(Theme.DARK);
+      // setTheme(Theme.DARK);
+      theme.current = Theme.DARK;
       document.body.classList.add("dark");
     }
   };
