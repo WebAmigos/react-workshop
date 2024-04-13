@@ -12,6 +12,7 @@ import {
   RegistrationFormRefsHookForm,
   RegistrationFormState,
 } from "./components/RegistrationForm";
+import { Stepper } from "./components/Stepper";
 import { ThemeContextProvider } from "./components/Theme/ThemeContext";
 import { ThemeSwitcher } from "./components/Theme/ThemeSwitcher";
 import { ViewPort } from "./components/ViewPort";
@@ -28,9 +29,10 @@ function App() {
       {/* <ViewPort /> */}
 
       <ThemeContextProvider>
-        <ThemeSwitcher />
+        {/* <ThemeSwitcher /> */}
         <AuthContextProvider>
-          <AuthInfo />
+          {/* <AuthInfo /> */}
+          <Stepper />
         </AuthContextProvider>
       </ThemeContextProvider>
     </>
