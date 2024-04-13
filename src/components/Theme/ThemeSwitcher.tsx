@@ -1,11 +1,9 @@
 import { MouseEventHandler, useState } from "react";
-import { Theme, useThemeContext } from "./ThemeContext";
+import { Theme, getMode, useThemeContext } from "./ThemeContext";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 
-import { Button } from "../../ui";
-
 export const ThemeSwitcher = () => {
-  const [theme, setTheme] = useState<Theme>(Theme.LIGHT);
+  const [theme, setTheme] = useState<Theme | null>(getMode());
   const context = useThemeContext();
 
   const handleClick: MouseEventHandler = () => {
