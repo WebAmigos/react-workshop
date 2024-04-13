@@ -1,9 +1,9 @@
-import { MouseEventHandler, useContext } from "react";
+import { type MouseEventHandler } from "react";
 
-import { AuthContext } from "./AuthContext";
+import { useAuthContext } from "./AuthContext";
 
 export const AuthCredentials = () => {
-  const { isLoggedIn, toggleValue } = useContext(AuthContext);
+  const { isLoggedIn, toggleValue, logIn, logOut } = useAuthContext();
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = () => {
     toggleValue();
@@ -13,6 +13,8 @@ export const AuthCredentials = () => {
     <div>
       <p>Is user logged? {isLoggedIn ? "YES" : "NO"}</p>
       <button onClick={handleClick}>Toggle</button>
+      <button onClick={logIn}>Log in</button>
+      <button onClick={logOut}>Log out</button>
     </div>
   );
 };
