@@ -1,9 +1,11 @@
 import { AuthCredentials } from "./AuthCredentials";
 
+import { Text } from "../../ui";
+
 export const AuthInfo = () => {
   return (
     <div>
-      <p>Auth Info</p>
+      <Text>Auth Info</Text>
       <AuthCredentials />
     </div>
   );

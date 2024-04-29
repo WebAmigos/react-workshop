@@ -27,8 +27,10 @@ const useTheme = () => {
   const toggle = () => {
     if (theme === Theme.DARK) {
       setTheme(Theme.LIGHT);
+      document.body.classList.remove("dark");
     } else {
       setTheme(Theme.DARK);
+      document.body.classList.add("dark");
     }
   };
 
