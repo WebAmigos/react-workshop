@@ -5,6 +5,7 @@ import { CounterPage } from "./pages/CounterPage";
 import { GeneratorPage } from "./pages/GeneratorPage";
 import { RegistrationPage } from "./pages/RegistrationPage";
 import { StepperPage } from "./pages/StepperPage";
+import { ProductsPage } from "./pages/ProductsPage";
 
 export const routes = {
   HOME: {
@@ -22,6 +23,9 @@ export const routes = {
   },
   STEPPER: {
     path: "/stepper",
+  },
+  PRODUCTS: {
+    path: "/products",
   },
 };
 
@@ -49,6 +53,10 @@ export const router = createBrowserRouter([
       {
         path: routes.STEPPER.path,
         element: <StepperPage />,
+      },
+      {
+        path: routes.PRODUCTS.path,
+        element: <ProductsPage />,
       },
     ],
   },

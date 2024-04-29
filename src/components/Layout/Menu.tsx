@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 import { routes } from "../../routes";
+import { Basket } from "../../features/Products/Basket";
 
 type Props = {
   to: string;
@@ -43,6 +44,12 @@ export const Menu = () => {
           </li>
           <li className="mr-2">
             <WaNavLink to={routes.STEPPER.path}>Stepper</WaNavLink>
+          </li>
+          <li className="mr-2">
+            <WaNavLink to={routes.PRODUCTS.path}>Products</WaNavLink>
+          </li>
+          <li className="mr-2">
+            <Basket />
           </li>
         </ul>
       </nav>
