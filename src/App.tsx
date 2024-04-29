@@ -12,6 +12,8 @@ import {
   RegistrationFormRefsHookForm,
   RegistrationFormState,
 } from "./components/RegistrationForm";
+import { ThemeContextProvider } from "./components/Theme/ThemeContext";
+import { ThemeSwitcher } from "./components/Theme/ThemeSwitcher";
 import { ViewPort } from "./components/ViewPort";
 
 function App() {
@@ -24,9 +26,13 @@ function App() {
       {/* <RegistrationFormRefsCustomInput /> */}
       {/* <RegistrationFormRefsHookForm /> */}
       {/* <ViewPort /> */}
-      <AuthContextProvider>
-        <AuthInfo />
-      </AuthContextProvider>
+
+      <ThemeContextProvider>
+        <ThemeSwitcher />
+        <AuthContextProvider>
+          <AuthInfo />
+        </AuthContextProvider>
+      </ThemeContextProvider>
     </>
   );
 }
