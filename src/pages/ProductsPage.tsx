@@ -12,12 +12,19 @@ import { fetchProducts } from "../services/products";
 // ];
 
 export const ProductsPage = () => {
-  const [products, setProducts] = useState<ProductDto[]>([]);
+  const [data, setData] = useState<ProductDto[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     const loadData = async () => {
-      const data = await fetchProducts();
-      setProducts(data.records);
+      try {
+        const responseData = await fetchProducts();
+        setData(responseData.records);
+        setIsLoading(false);
+      } catch {
+        setIsError(true);
+      }
     };
 
     loadData();
@@ -28,7 +35,9 @@ export const ProductsPage = () => {
   return (
     <div>
       <Text>Products</Text>
-      <ProductsList products={products} />
+      {isLoading && <p className="text-white">Loading...</p>}
+      {isError && <p className="text-white">Oh no! Error!</p>}
+      <ProductsList products={data} />
     </div>
   );
 };
