@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
+
 import { ProductDto } from "../../types/Product";
-import { Button, Text } from "../../ui";
+import { Button } from "../../ui";
 import { useAppDispatch } from "../../hooks/redux";
 import { add } from "./basketSlice";
 
@@ -14,9 +16,9 @@ export const ProductsList = ({ products }: Props) => {
       <ul>
         {products.map((product) => (
           <li key={product.id} className="flex my-2">
-            <Text>
+            <Link to={`/products/${product.id}`} className="text-blue-500">
               {product.fields.name} ({product.fields.price.toString()} zł){" "}
-            </Text>
+            </Link>
             <Button
               label="+"
               onClick={() => dispatch(add(product))}

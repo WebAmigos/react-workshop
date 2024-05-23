@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Text } from "../ui";
 import { ProductsList } from "../features/Products/ProductsList";
 import { type ProductDto } from "../types/Product";
+import { fetchProducts } from "../services/products";
 
 // const products: Product[] = [
 //   { id: 1, name: "Laptop", price: 3000 },
@@ -14,21 +15,14 @@ export const ProductsPage = () => {
   const [products, setProducts] = useState<ProductDto[]>([]);
 
   useEffect(() => {
-    // curl "https://api.airtable.com/v0/appTY6UZYkPtIRSWc/products?maxRecords=3&view=default" \
-    // -H "Authorization: Bearer YOUR_SECRET_API_TOKEN"
+    const loadData = async () => {
+      const data = await fetchProducts();
+      setProducts(data.records);
+    };
 
-    fetch("https://api.airtable.com/v0/appTY6UZYkPtIRSWc/products", {
-      headers: {
-        Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`,
-      },
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error("Invalid response");
-      })
-      .then((data) => setProducts(data.records));
+    loadData();
+
+    // fetchProducts().then((data) => setProducts(data.records));
   }, []);
 
   return (

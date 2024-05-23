@@ -5,7 +5,7 @@ export type Product = {
 };
 
 export type ProductDto = {
-  id: number;
+  id: string;
   fields: {
     name: string;
     description: string;
