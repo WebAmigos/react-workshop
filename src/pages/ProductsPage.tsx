@@ -5,6 +5,8 @@ import { ProductsList } from "../features/Products/ProductsList";
 import { type ProductDto } from "../types/Product";
 import { type AirtableListResponse, fetchProducts } from "../services/products";
 import { useApi } from "../hooks/useApi";
+import { Link } from "react-router-dom";
+import { routes } from "../routes";
 
 // const products: Product[] = [
 //   { id: 1, name: "Laptop", price: 3000 },
@@ -40,6 +42,11 @@ export const ProductsPage = () => {
       <Text>Products</Text>
       {isLoading && <p className="text-white">Loading...</p>}
       {isError && <p className="text-white">Oh no! Error!</p>}
+      <div>
+        <Link to={routes.CREATE_PRODUCT.path} className="text-blue-500">
+          Create product
+        </Link>
+      </div>
       {data && <ProductsList products={data.records} />}
     </div>
   );
