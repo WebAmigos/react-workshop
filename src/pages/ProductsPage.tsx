@@ -7,6 +7,7 @@ import { type AirtableListResponse, fetchProducts } from "../services/products";
 import { useApi } from "../hooks/useApi";
 import { Link } from "react-router-dom";
 import { routes } from "../routes";
+import { useQuery } from "@tanstack/react-query";
 
 // const products: Product[] = [
 //   { id: 1, name: "Laptop", price: 3000 },
@@ -18,8 +19,12 @@ export const ProductsPage = () => {
   // const [data, setData] = useState<ProductDto[]>([]);
   // const [isLoading, setIsLoading] = useState(true);
   // const [isError, setIsError] = useState(false);
-  const { data, isLoading, isError } =
-    useApi<AirtableListResponse<ProductDto[]>>(fetchProducts);
+  // const { data, isLoading, isError } =
+  //   useApi<AirtableListResponse<ProductDto[]>>(fetchProducts);
+  const { data, isError, isLoading } = useQuery({
+    queryKey: ["products"],
+    queryFn: fetchProducts,
+  });
 
   // useEffect(() => {
   //   const loadData = async () => {
