@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 import { Text } from "../ui";
 import { ProductsList } from "../features/Products/ProductsList";
 import { type ProductDto } from "../types/Product";
-import { fetchProducts } from "../services/products";
+import { type AirtableListResponse, fetchProducts } from "../services/products";
+import { useApi } from "../hooks/useApi";
 
 // const products: Product[] = [
 //   { id: 1, name: "Laptop", price: 3000 },
@@ -12,32 +13,34 @@ import { fetchProducts } from "../services/products";
 // ];
 
 export const ProductsPage = () => {
-  const [data, setData] = useState<ProductDto[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
+  // const [data, setData] = useState<ProductDto[]>([]);
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [isError, setIsError] = useState(false);
+  const { data, isLoading, isError } =
+    useApi<AirtableListResponse<ProductDto[]>>(fetchProducts);
 
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        const responseData = await fetchProducts();
-        setData(responseData.records);
-        setIsLoading(false);
-      } catch {
-        setIsError(true);
-      }
-    };
+  // useEffect(() => {
+  //   const loadData = async () => {
+  //     try {
+  //       const responseData = await fetchProducts();
+  //       setData(responseData.records);
+  //       setIsLoading(false);
+  //     } catch {
+  //       setIsError(true);
+  //     }
+  //   };
 
-    loadData();
+  //   loadData();
 
-    // fetchProducts().then((data) => setProducts(data.records));
-  }, []);
+  //   // fetchProducts().then((data) => setProducts(data.records));
+  // }, []);
 
   return (
     <div>
       <Text>Products</Text>
       {isLoading && <p className="text-white">Loading...</p>}
       {isError && <p className="text-white">Oh no! Error!</p>}
-      <ProductsList products={data} />
+      {data && <ProductsList products={data.records} />}
     </div>
   );
 };
