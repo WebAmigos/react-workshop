@@ -6,6 +6,7 @@ import { GeneratorPage } from "./pages/GeneratorPage";
 import { RegistrationPage } from "./pages/RegistrationPage";
 import { StepperPage } from "./pages/StepperPage";
 import { ProductsPage } from "./pages/ProductsPage";
+import { ProductsDetailsPage } from "./pages/ProductsDetailsPage";
 
 export const routes = {
   HOME: {
@@ -26,6 +27,9 @@ export const routes = {
   },
   PRODUCTS: {
     path: "/products",
+  },
+  PRODUCT_DETAILS: {
+    path: "/products/:id",
   },
 };
 
@@ -57,6 +61,10 @@ export const router = createBrowserRouter([
       {
         path: routes.PRODUCTS.path,
         element: <ProductsPage />,
+      },
+      {
+        path: routes.PRODUCT_DETAILS.path,
+        element: <ProductsDetailsPage />,
       },
     ],
   },
