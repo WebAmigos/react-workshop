@@ -3,17 +3,14 @@ import { Button, Text } from "../../ui";
 import { useAppDispatch } from "../../hooks/redux";
 import { add } from "./basketSlice";
 
-const products: Product[] = [
-  { id: 1, name: "Laptop", price: 3000 },
-  { id: 2, name: "Keyboard", price: 150 },
-  { id: 3, name: "Mouse", price: 70 },
-];
+type Props = {
+  products: Product[];
+};
 
-export const ProductsList = () => {
+export const ProductsList = ({ products }: Props) => {
   const dispatch = useAppDispatch();
   return (
     <div>
-      <Text>Products</Text>
       <ul>
         {products.map((product) => (
           <li key={product.id} className="flex my-2">
