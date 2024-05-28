@@ -7,6 +7,7 @@ import { RegistrationPage } from "./pages/RegistrationPage";
 import { StepperPage } from "./pages/StepperPage";
 import { ProductsPage } from "./pages/ProductsPage";
 import { ProductsDetailsPage } from "./pages/ProductsDetailsPage";
+import { CreateProductPage } from "./pages/CreateProductPage";
 
 export const routes = {
   HOME: {
@@ -30,6 +31,9 @@ export const routes = {
   },
   PRODUCT_DETAILS: {
     path: "/products/:id",
+  },
+  CREATE_PRODUCT: {
+    path: "/products/create",
   },
 };
 
@@ -65,6 +69,10 @@ export const router = createBrowserRouter([
       {
         path: routes.PRODUCT_DETAILS.path,
         element: <ProductsDetailsPage />,
+      },
+      {
+        path: routes.CREATE_PRODUCT.path,
+        element: <CreateProductPage />,
       },
     ],
   },
