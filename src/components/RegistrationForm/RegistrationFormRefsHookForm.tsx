@@ -25,13 +25,13 @@ export const RegistrationFormRefsHookForm = () => {
 
   return (
     <form onSubmit={handleSubmit(handleRegistrationForm)}>
-      <p>
+      <p className="dark:text-white">
         E-mail: {email}, password: {password}
       </p>
       <Input
         label="E-mail"
         {...register("email")}
-        type="email"
+        // type="email"
         error={errors.email}
       />
       <Input
