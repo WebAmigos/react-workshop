@@ -4,7 +4,7 @@ export const ViewPort = () => {
   const size = useViewPort();
   return (
     <div>
-      <p>
+      <p className="dark:text-white">
         X: {size.x}, Y: {size.y}
       </p>
     </div>
