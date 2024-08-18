@@ -8,3 +8,5 @@ type Props = {
 export const Text = memo(({ children }: Props) => {
   return <p className="dark:text-slate-300">{children}</p>;
 });
+
+Text.displayName = "memo(Text)";
