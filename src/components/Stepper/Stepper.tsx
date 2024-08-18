@@ -11,9 +11,9 @@ type State = {
 };
 
 export enum ActionType {
-  INCREMENT = "increment",
-  DECREMENT = "decrement",
-  SET_VALUE = "set-value",
+  INCREMENT, // 0,  = "increment",
+  DECREMENT, // 1, = "decrement",
+  SET_VALUE, // 2, = "set-value",
 }
 
 type Action = {
