@@ -49,6 +49,9 @@ export const Menu = () => {
             <WaNavLink to={routes.PRODUCTS.path}>Products</WaNavLink>
           </li>
           <li className="mr-2">
+            <WaNavLink to={routes.DATATABLE.path}>Data table</WaNavLink>
+          </li>
+          <li className="mr-2">
             <Basket />
           </li>
         </ul>
