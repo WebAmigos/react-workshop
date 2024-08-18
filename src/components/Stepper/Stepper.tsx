@@ -1,4 +1,9 @@
-import { type KeyboardEventHandler, useReducer, useRef } from "react";
+import {
+  type KeyboardEventHandler,
+  useCallback,
+  useReducer,
+  useRef,
+} from "react";
 import { Button, Input, Text } from "../../ui";
 
 type State = {
@@ -53,14 +58,22 @@ export const Stepper = () => {
     }
   };
 
+  const handleDecrement = useCallback(() => {
+    dispatch(decrement());
+  }, []);
+
+  const handleIncrement = useCallback(() => {
+    dispatch(increment());
+  }, []);
+
   return (
     <div>
       <div className="flex mx-auto justify-center">
-        <Button label="-" onClick={() => dispatch(decrement())} />
+        <Button label="-" onClick={handleDecrement} />
         <div className="mx-4">
           <Text>{state.count}</Text>
         </div>
-        <Button label="+" onClick={() => dispatch(increment())} />
+        <Button label="+" onClick={handleIncrement} />
       </div>
       <div>
         <Input

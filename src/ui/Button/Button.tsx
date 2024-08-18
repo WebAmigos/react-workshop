@@ -1,4 +1,4 @@
-import { type ComponentProps } from "react";
+import { memo, type ComponentProps } from "react";
 import { cn } from "../../utils/cn";
 
 type Props = {
@@ -6,7 +6,7 @@ type Props = {
   // onClick: MouseEventHandler<HTMLButtonElement>;
 } & ComponentProps<"button">;
 
-export const Button = ({ label, className, ...rest }: Props) => {
+export const Button = memo(({ label, className, ...rest }: Props) => {
   return (
     <button
       className={cn(
@@ -19,4 +19,4 @@ export const Button = ({ label, className, ...rest }: Props) => {
       {label}
     </button>
   );
-};
+});
