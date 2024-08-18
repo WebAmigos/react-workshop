@@ -19,6 +19,7 @@ export const Generator = () => {
   return (
     <div onClick={handleDivClick}>
       <Text>{id}</Text>
+      <Text>Lorem ipsum</Text>
       <Button label="Refresh" onClick={handleClick} />
     </div>
   );
