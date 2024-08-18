@@ -20,3 +20,5 @@ export const Button = memo(({ label, className, ...rest }: Props) => {
     </button>
   );
 });
+
+Button.displayName = "memo(Button)";
