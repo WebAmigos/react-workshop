@@ -7,7 +7,8 @@ import { RegistrationPage } from "./pages/RegistrationPage";
 import { StepperPage } from "./pages/StepperPage";
 import { ProductsPage } from "./pages/ProductsPage";
 import { ProductsDetailsPage } from "./pages/ProductsDetailsPage";
-import { CreateProductPage } from "./pages/CreateProductPage";
+import { CreateProductPage } from "./pages/CreateProductPage copy";
+import { DatatablePage } from "./pages/DataTable";
 
 export const routes = {
   HOME: {
@@ -34,6 +35,9 @@ export const routes = {
   },
   CREATE_PRODUCT: {
     path: "/products/create",
+  },
+  DATATABLE: {
+    path: "/datatable",
   },
 };
 
@@ -73,6 +77,10 @@ export const router = createBrowserRouter([
       {
         path: routes.CREATE_PRODUCT.path,
         element: <CreateProductPage />,
+      },
+      {
+        path: routes.DATATABLE.path,
+        element: <DatatablePage />,
       },
     ],
   },
